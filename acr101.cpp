@@ -3,7 +3,7 @@
 
 using namespace std;
 bool diabolico, esoterico;
-int n,d1,d2, cm2;
+int n, d1, d2, cm2;
 
 
 int main() {
@@ -12,8 +12,8 @@ int main() {
 		d1 = d2 = 0;
 		diabolico = esoterico = true;
 		vector<vector<int>> v(n, vector<int>(n));
-		vector<bool> todos(n * n,false);
-		vector<int> filas(n,0), columnas(n,0);
+		vector<bool> todos(n * n, false);
+		vector<int> filas(n, 0), columnas(n, 0);
 		for (int i = 0; i < n; ++i) {
 			for (int j = 0; j < n; ++j) {
 				cin >> v[i][j];
@@ -26,7 +26,7 @@ int main() {
 			d1 += v[i][i];
 			d2 += v[i][n - i - 1];
 		}
-		if (filas[0] != columnas[0] || d1 != d2 || d1 !=filas[0])
+		if (filas[0] != columnas[0] || d1 != d2 || d1 != filas[0])
 			diabolico = false;
 		for (int i = 1; i < n && diabolico; ++i) {
 			if (filas[i] != filas[i - 1] || columnas[i] != columnas[i - 1])
@@ -39,7 +39,7 @@ int main() {
 			if (n % 2 == 1) {
 				if (v[(n - 1) / 2][(n - 1) / 2] * 4 != cm2)
 					esoterico = false;
-				if (v[(n - 1) / 2][0] + v[(n - 1) / 2][n - 1] + v[0][(n - 1) / 2] + v[n-1][(n - 1) / 2] != cm2)
+				if (v[(n - 1) / 2][0] + v[(n - 1) / 2][n - 1] + v[0][(n - 1) / 2] + v[n - 1][(n - 1) / 2] != cm2)
 					esoterico = false;
 			}
 			else {
